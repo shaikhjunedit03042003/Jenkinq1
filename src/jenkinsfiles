@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone code from GitHub repository
+                git 'https://github.com/your-username/your-repo.git'
+            }
+        }
+
+        stage('Build and Test') {
+            steps {
+                // Run Maven tests
+                sh 'mvn test'
+            }
+        }
+
+        stage('Publish Test Results') {
+            steps {
+                // Publish JUnit test reports
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
+    }
+}
