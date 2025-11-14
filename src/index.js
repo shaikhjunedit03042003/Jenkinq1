@@ -6,10 +6,12 @@ const app=express();
 
 
 app.get("/",(req,res)=>{
+    console.log("Junit testing");
 
     return res.send("Hello juneddd");
 });
 
 app.listen(PORT,()=>{
+
     console.log(`Server Running http://localhost:$+PORT`);
 });
